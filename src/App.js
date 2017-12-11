@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from  './App.css';
 import Person from './Person/Person';
 
 
@@ -43,14 +43,7 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border : '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-    };
+    let btnClass = '';
     let person = null;
     if(this.state.showPersons){
       person = (
@@ -64,14 +57,14 @@ class App extends Component {
           })}
         </div>
       );
-      style.backgroundColor = 'red';
+      btnClass = classes.Red;
     }
 
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>Hi my first react app</h1>
         {person}
-        <button style={style} onClick={this.togglePersonHandler}>Toggle Button</button>
+        <button className={btnClass} onClick={this.togglePersonHandler}>Toggle Button</button>
       </div>
     );
     // return React.createElement('div',{className: 'App'},
